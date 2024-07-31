@@ -4,9 +4,11 @@ import 'dart:convert';
 class BankModel {
   final String bankName;
   final String bankCode;
+  bool isFavourite = false;
   BankModel({
     required this.bankName,
     required this.bankCode,
+    this.isFavourite = false,
   });
 
   BankModel copyWith({

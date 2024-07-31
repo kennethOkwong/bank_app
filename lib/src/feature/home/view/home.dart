@@ -1,15 +1,18 @@
-import 'package:bank_app/src/feature/product/view/products.dart';
-import 'package:bank_app/src/res/strings.dart';
+import 'package:bank_app/src/feature/bank/controller/bank.dart';
+import 'package:bank_app/src/feature/bank/view/bank.dart';
 import 'package:bank_app/src/utils/text_field.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-class HomeView extends StatelessWidget {
+class HomeView extends ConsumerWidget {
   const HomeView({Key? key}) : super(key: key);
 
   static const routePath = "/home";
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final productController = ref.read(productControllerProvider.notifier);
+
     return Scaffold(
       backgroundColor: Colors.grey.shade200,
       body: Column(
@@ -67,14 +70,9 @@ class HomeView extends StatelessWidget {
                   prefix: const Icon(Icons.search),
                   bgcolor: Colors.grey.shade100,
                   borderColor: Colors.white,
-
                   floatingLabelBehavior: FloatingLabelBehavior.never,
-                  // controller: model.query,
                   onChanged: (value) {
-                    // if (value.trim().isEmpty) {
-                    //   model.toggleisSearching(false);
-                    // }
-                    // model.searchFaqs();
+                    productController.filterList(value);
                   },
                 ),
               ],

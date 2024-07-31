@@ -1,7 +1,7 @@
 import 'dart:convert';
 import 'dart:developer';
 import 'package:bank_app/src/core/core.dart';
-import 'package:bank_app/src/feature/file/res/endpoints.dart';
+import 'package:bank_app/src/res/endpoints.dart';
 import 'package:bank_app/src/models/bank.dart';
 import 'package:bank_app/src/res/strings.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
